@@ -20,7 +20,7 @@ def read_temp(bme280, mcp9808):
 
     return reading
 
-if __name__ == '__name__':
+if __name__ == '__main__':
     # Create library object using our Bus I2C port
     i2c = busio.I2C(board.SCL, board.SDA)
     bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
