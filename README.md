@@ -31,13 +31,21 @@ I'll be relying on the Adafruit CircuitPython libraries.
     sudo dcfldd bs=4M if=2018-06-27-raspbian-jessie.img of=/dev/mmcblk0
 
     # mount the first partition and enable ssh
-    mount /dev/mmcblk0 /mount/sd
-    touch /mount/sd/ssh
-    umount /mount/sd
+    sudo mount /dev/mmcblk0p1 /mount/sd
+    sudo touch /mount/sd/ssh
+    sudo umount /dev/mmcblk0p1
 
+
+    # I had to reboot for blkdid to show the updated partition table. 
+    sudo blkid | grep -c mmcblk0p2 
+    0
+
+    # reboot, if the partition table is not updated
+    sudo blkid | grep -c mmcblk0p2 
+    1
 
     # mount the second partition and edit the wireless config
-    mount /dev/mmcblk1 /mount/sd
+    sudo mount /dev/mmcblk0p2 /mount/sd
 
     # edit the wireless config
     sudo vim /mount/sd/etc/wpa_supplicant/wpa_supplicant.conf
@@ -52,7 +60,7 @@ I'll be relying on the Adafruit CircuitPython libraries.
     }
 
     # unmount the partition
-    umount /mount/sd
+    sudo umount /dev/mmcblk0p2 
 
 ```
 ## Run time configurations
