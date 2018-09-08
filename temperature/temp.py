@@ -15,7 +15,7 @@ def read_temp(bme280, mcp9808):
 	'humidity': bme280.humidity,
 	'altitude_m': bme280.altitude, 
 	'pressure_hpa': bme280.pressure,
-	'dew-point_c': bme280.dew_point, 
+	'dew_point_c': bme280.dew_point, 
 	'timestamp': time.localtime()}
 
     return reading
