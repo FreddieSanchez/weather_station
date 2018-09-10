@@ -14,10 +14,10 @@ def update(temp_data):
             WUurl +
             WUcreds +
             date_str +
-            "&baromin" + "{0:.2f}".format(util.hpa_to_in(temp_data['pressure_hpa'])) + 
+            "&baromin=" + "{0:.2f}".format(util.hpa_to_in(temp_data['pressure_hpa'])) + 
             "&tempf=" + "{0:.2f}".format(util.c_to_f(temp_data['temperature_c'])) + 
             "&dewptf=" + "{0:.2f}".format(util.c_to_f(temp_data['dew_point_c']))+ 
             "&humidity=" + "{0:.2f}".format(temp_data['humidity'])+
             action_str)
-
+    print(r)
     return r.status_code
