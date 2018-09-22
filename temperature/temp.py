@@ -11,12 +11,15 @@ def read_temp(bme280, mcp9808):
     # change this to match the location's pressure (hPa) at sea level
     bme280.sea_level_pressure = 1014.25
 
-    reading = {  'temperature_c':  mcp9808.temperature,
-	'humidity': bme280.humidity,
-	'altitude_m': bme280.altitude, 
-	'pressure_hpa': bme280.pressure,
-	'dew_point_c': bme280.dew_point, 
-	'timestamp': time.localtime()}
+    reading = {  
+            'temperature_c':  bme280.temperature,
+            'temperature2_c':  mcp9808.temperature,
+            'humidity': bme280.humidity,
+            'altitude_m': bme280.altitude, 
+            'pressure_hpa': bme280.pressure,
+            'dew_point_c': bme280.dew_point, 
+            'timestamp': time.localtime()
+            }
 
     return reading
 
